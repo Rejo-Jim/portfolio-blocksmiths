@@ -1,0 +1,118 @@
+{% extends 'base.html' %}
+
+{% block title %}The Journey — Interactive Timeline{% endblock %}
+
+{% block content %}
+<div class="page-header-section">
+  <div class="container">
+    <div class="section-label-chip"><i class="fa-solid fa-timeline"></i> CHRONOLOGICAL DIARY</div>
+    <h1 class="page-main-title">THE JOURNEY</h1>
+    <p class="page-subtitle">
+      A step-by-step interactive timeline documenting every major pivot, breakthrough, and milestone from day one.
+    </p>
+
+    <!-- Year Quick Filters -->
+    <div class="timeline-filter-bar">
+      <span class="filter-label">Jump to:</span>
+      <button class="filter-pill active" data-timeline-filter="all">All Milestones</button>
+      <button class="filter-pill" data-timeline-filter="2024">2024 (Foundations)</button>
+      <button class="filter-pill" data-timeline-filter="2025">2025 (Web & Algorithms)</button>
+      <button class="filter-pill" data-timeline-filter="2026">2026 (Architecture & Systems)</button>
+    </div>
+  </div>
+</div>
+
+<section class="timeline-full-section">
+  <div class="container timeline-container">
+    <!-- Center Guide Line -->
+    <div class="timeline-center-spine"></div>
+
+    <!-- Timeline Items Loop -->
+    <div class="timeline-stream" id="timelineStream">
+      {% for m in milestones %}
+      <div class="timeline-item-row {% if loop.index is odd %}row-left{% else %}row-right{% endif %} {% if m.status == 'current' %}is-current{% elif m.status == 'completed' %}is-completed{% else %}is-future{% endif %}" 
+           data-year="{{ m.year }}" data-milestone-id="{{ m.id }}">
+        
+        <!-- Center Node Marker -->
+        <div class="timeline-marker" title="{{ m.title }}">
+          {% if m.status == 'completed' %}
+            <i class="fa-solid fa-check"></i>
+          {% elif m.status == 'current' %}
+            <span class="marker-ping"></span>
+            <i class="fa-solid fa-compass"></i>
+          {% else %}
+            <i class="fa-solid fa-ellipsis"></i>
+          {% endif %}
+        </div>
+
+        <!-- Milestone Card -->
+        <article class="timeline-card glass-panel" data-milestone='{{ m | tojson }}'>
+          <div class="timeline-card-header">
+            <div class="date-badge-wrap">
+              <span class="timeline-date"><i class="fa-regular fa-calendar"></i> {{ m.date }}</span>
+              <span class="timeline-category-tag">{{ m.category }}</span>
+            </div>
+            {% if m.status == 'current' %}
+            <span class="timeline-you-are-here-tag">
+              <span class="radar-dot"></span> YOU ARE HERE
+            </span>
+            {% elif m.status == 'future' %}
+            <span class="timeline-future-tag">FUTURE HORIZON</span>
+            {% endif %}
+          </div>
+
+          <h3 class="milestone-title">{{ m.title }}</h3>
+          <p class="milestone-tagline">{{ m.tagline }}</p>
+          <p class="milestone-desc">{{ m.description }}</p>
+
+          <!-- Achievement & Learning Callouts -->
+          <div class="milestone-highlights">
+            <div class="highlight-block achievement-block">
+              <div class="hl-header">
+                <i class="fa-solid fa-trophy"></i>
+                <span>KEY ACHIEVEMENT</span>
+              </div>
+              <p class="hl-text">{{ m.achievement }}</p>
+            </div>
+
+            <div class="highlight-block learned-block">
+              <div class="hl-header">
+                <i class="fa-solid fa-lightbulb"></i>
+                <span>WHAT I LEARNED</span>
+              </div>
+              <p class="hl-text">{{ m.learned }}</p>
+            </div>
+          </div>
+
+          <!-- Technologies used -->
+          <div class="milestone-footer">
+            <div class="milestone-tech-list">
+              {% for tech in m.technologies %}
+              <span class="tech-tag">{{ tech }}</span>
+              {% endfor %}
+            </div>
+            <button class="expand-milestone-btn open-milestone-modal-btn" data-milestone='{{ m | tojson }}'>
+              <i class="fa-solid fa-maximize"></i> Deep Story
+            </button>
+          </div>
+        </article>
+      </div>
+      {% endfor %}
+    </div>
+
+    <!-- Timeline Conclusion -->
+    <div class="timeline-terminal-node">
+      <div class="terminal-end-marker">
+        <i class="fa-solid fa-infinity"></i>
+      </div>
+      <div class="terminal-end-card">
+        <h3>THE JOURNEY ISN'T FINISHED.</h3>
+        <p>Every commit is a new hypothesis; every bug is a masterclass in computer systems.</p>
+        <a href="{{ url_for('roadmap') }}" class="btn btn-outline btn-sm">
+          <i class="fa-solid fa-map-location-dot"></i> Inspect Upcoming Roadmap
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,186 @@
+{% extends 'base.html' %}
+
+{% block title %}How I've Grown — Progress Analysis & Metrics{% endblock %}
+
+{% block content %}
+<div class="page-header-section">
+  <div class="container">
+    <div class="section-label-chip"><i class="fa-solid fa-chart-line"></i> QUANTIFIABLE PROGRESS</div>
+    <h1 class="page-main-title">HOW I'VE GROWN</h1>
+    <p class="page-subtitle">
+      Data-driven insights into my coding cadence, algorithmic mastery, technical range, and engineering transformation over time.
+    </p>
+
+    <!-- Quick Stats Bar -->
+    <div class="progress-stats-summary-bar">
+      <div class="summary-stat-box">
+        <span class="summary-val">{{ progress.quick_stats.projects_built }}</span>
+        <span class="summary-lbl">Projects Built</span>
+      </div>
+      <div class="summary-stat-box">
+        <span class="summary-val">{{ progress.quick_stats.problems_solved }}</span>
+        <span class="summary-lbl">Problems Solved</span>
+      </div>
+      <div class="summary-stat-box">
+        <span class="summary-val">{{ progress.quick_stats.hours_logged }}</span>
+        <span class="summary-lbl">Hours Logged</span>
+      </div>
+      <div class="summary-stat-box">
+        <span class="summary-val">{{ progress.quick_stats.streak_days }}d</span>
+        <span class="summary-lbl">Longest Daily Streak</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Chart Visualizations Grid -->
+<section class="progress-charts-section">
+  <div class="container">
+    <div class="charts-bento-grid">
+      
+      <!-- Chart 1: Problems Solved Over Time (Area Line Chart) -->
+      <div class="chart-card glass-panel bento-span-2">
+        <div class="chart-header">
+          <div>
+            <div class="chart-chip"><i class="fa-solid fa-brain"></i> CUMULATIVE TRAJECTORY</div>
+            <h3 class="chart-title">Algorithmic Problems Solved (2024–2026)</h3>
+            <p class="chart-sub">Tracked across LeetCode, Codeforces, and contest challenges</p>
+          </div>
+          <span class="chart-badge">365+ Total</span>
+        </div>
+        <div class="chart-canvas-wrapper" style="height: 300px;">
+          <canvas id="problemsChart"></canvas>
+        </div>
+      </div>
+
+      <!-- Chart 2: Projects Completed Per Quarter -->
+      <div class="chart-card glass-panel">
+        <div class="chart-header">
+          <div>
+            <div class="chart-chip"><i class="fa-solid fa-rocket"></i> SHIPPING VELOCITY</div>
+            <h3 class="chart-title">Projects Shipped</h3>
+            <p class="chart-sub">Per quarter velocity</p>
+          </div>
+        </div>
+        <div class="chart-canvas-wrapper" style="height: 250px;">
+          <canvas id="projectsChart"></canvas>
+        </div>
+      </div>
+
+      <!-- Chart 3: Coding Activity Distribution -->
+      <div class="chart-card glass-panel">
+        <div class="chart-header">
+          <div>
+            <div class="chart-chip"><i class="fa-solid fa-chart-pie"></i> TIME ALLOCATION</div>
+            <h3 class="chart-title">How I Spend Coding Time</h3>
+            <p class="chart-sub">Balanced focus across the week</p>
+          </div>
+        </div>
+        <div class="chart-canvas-wrapper" style="height: 250px;">
+          <canvas id="activityChart"></canvas>
+        </div>
+      </div>
+
+      <!-- Chart 4: Technologies Learned by Domain -->
+      <div class="chart-card glass-panel bento-span-2">
+        <div class="chart-header">
+          <div>
+            <div class="chart-chip"><i class="fa-solid fa-cubes"></i> TECHNICAL BREADTH</div>
+            <h3 class="chart-title">Technologies Mastered by Category</h3>
+            <p class="chart-sub">From core languages to databases and algorithms</p>
+          </div>
+        </div>
+        <div class="chart-canvas-wrapper" style="height: 280px;">
+          <canvas id="techCategoryChart"></canvas>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Before vs. Now Interactive Full Section -->
+<section class="before-now-full-section">
+  <div class="container">
+    <div class="section-label-chip"><i class="fa-solid fa-code-compare"></i> EVOLUTION OF MINDSET</div>
+    <h2 class="section-heading">Before vs. Now</h2>
+    <p class="section-desc">Comparing where my instincts were when I wrote my first script versus how I build software today.</p>
+
+    <!-- Interactive Toggle to switch views -->
+    <div class="bvn-mode-toggle">
+      <button class="bvn-btn active" id="bvnSideBySideBtn"><i class="fa-solid fa-columns"></i> Side by Side</button>
+      <button class="bvn-btn" id="bvnFlipBtn"><i class="fa-solid fa-arrows-rotate"></i> Step Through Dimensions</button>
+    </div>
+
+    <!-- Side-by-side View -->
+    <div class="bvn-comparison-grid" id="bvnSideBySideView">
+      <div class="bvn-side before-side">
+        <div class="side-header before-style">
+          <div class="side-icon"><i class="fa-solid fa-seedling"></i></div>
+          <div>
+            <h3>BEFORE (2024)</h3>
+            <p>The early struggles & tutorial traps</p>
+          </div>
+        </div>
+        <div class="bvn-cards-list">
+          {% for item in before_vs_now %}
+          <div class="bvn-item-box">
+            <span class="dim-pill">{{ item.dimension }}</span>
+            <p class="bvn-text">{{ item.before }}</p>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+
+      <div class="bvn-side now-side">
+        <div class="side-header now-style">
+          <div class="side-icon"><i class="fa-solid fa-bolt"></i></div>
+          <div>
+            <h3>NOW (2026)</h3>
+            <p>Deliberate craftsmanship & autonomy</p>
+          </div>
+        </div>
+        <div class="bvn-cards-list">
+          {% for item in before_vs_now %}
+          <div class="bvn-item-box highlight">
+            <span class="dim-pill now">{{ item.dimension }}</span>
+            <p class="bvn-text">{{ item.now }}</p>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+
+    <!-- Step through carousel / dimension cards (hidden by default, toggled via JS) -->
+    <div class="bvn-step-view" id="bvnStepView" style="display: none;">
+      <div class="step-card-active glass-panel" id="bvnStepCard">
+        <div class="step-dimension-header" id="bvnStepDimTitle">Dimension</div>
+        <div class="step-split-row">
+          <div class="step-half step-before">
+            <div class="step-lbl"><i class="fa-solid fa-clock-rotate-left"></i> BEFORE</div>
+            <p id="bvnStepBefore">Before text</p>
+          </div>
+          <div class="step-half step-now">
+            <div class="step-lbl"><i class="fa-solid fa-wand-magic-sparkles"></i> NOW</div>
+            <p id="bvnStepNow">Now text</p>
+          </div>
+        </div>
+        <div class="step-nav-bar">
+          <button class="btn btn-sm btn-outline" id="bvnPrevStepBtn"><i class="fa-solid fa-chevron-left"></i> Previous</button>
+          <span class="step-counter-label" id="bvnStepCounter">1 / 5</span>
+          <button class="btn btn-sm btn-primary" id="bvnNextStepBtn">Next Dimension <i class="fa-solid fa-chevron-right"></i></button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<!-- Pass Chart Data from Python/Flask to JavaScript -->
+<script>
+  window.CHART_DATA = {{ progress.charts | tojson }};
+  window.BEFORE_NOW_DATA = {{ before_vs_now | tojson }};
+</script>
+{% endblock %}

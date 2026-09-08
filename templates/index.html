@@ -1,0 +1,394 @@
+{% extends 'base.html' %}
+
+{% block title %}My Coding Journey — Home{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero-section" id="hero">
+  <div class="hero-backdrop-glow"></div>
+  <div class="container hero-container">
+    
+    <div class="hero-badge-container animate-fade-in">
+      <div class="terminal-badge">
+        <span class="terminal-dot red"></span>
+        <span class="terminal-dot yellow"></span>
+        <span class="terminal-dot green"></span>
+        <span class="terminal-text">developer.diary // v2026.09</span>
+      </div>
+    </div>
+
+    <!-- Massive Heading -->
+    <h1 class="hero-title animate-slide-up">
+      <span class="hero-title-line">MY CODING</span>
+      <span class="hero-title-accent">JOURNEY</span>
+    </h1>
+
+    <!-- Subtitle -->
+    <p class="hero-subtitle animate-slide-up delay-1">
+      From my first lines of code to the things I'm building today.
+    </p>
+
+    <!-- Story-driven Personal Introduction (NOT a job application) -->
+    <div class="hero-story-card animate-slide-up delay-2">
+      <div class="story-card-inner">
+        <div class="story-quote-icon"><i class="fa-solid fa-quote-left"></i></div>
+        <p class="story-text">
+          I didn't start coding because I wanted a generic career in tech. I started because I wanted to understand how thoughts become software, how abstract logic commands silicon, and how one person with a text editor can build tools that didn't exist an hour ago. Every project here is a footprint: early scripts that barely ran, late-night debugging marathons, algorithmic epiphanies, and the thrill of building things that actually work.
+        </p>
+      </div>
+    </div>
+
+    <!-- Dual Action Buttons -->
+    <div class="hero-actions animate-slide-up delay-3">
+      <a href="{{ url_for('journey') }}" class="btn btn-primary">
+        <span>EXPLORE MY JOURNEY</span>
+        <i class="fa-solid fa-arrow-right"></i>
+      </a>
+      <a href="{{ url_for('projects') }}" class="btn btn-secondary">
+        <span>SEE WHAT I'VE BUILT</span>
+        <i class="fa-solid fa-layer-group"></i>
+      </a>
+    </div>
+
+    <!-- Current Status Box -->
+    <div class="current-status-hero-card animate-slide-up delay-4">
+      <div class="status-header">
+        <span class="pulsing-radar-dot"></span>
+        <span class="status-label-eyebrow">CURRENT STATUS</span>
+      </div>
+      <div class="status-mantra-list">
+        <span class="mantra-item"><i class="fa-solid fa-check"></i> Still learning.</span>
+        <span class="mantra-divider">/</span>
+        <span class="mantra-item"><i class="fa-solid fa-check"></i> Still building.</span>
+        <span class="mantra-divider">/</span>
+        <span class="mantra-item"><i class="fa-solid fa-check"></i> Still curious.</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Quick Stats Section with Counter Animation -->
+<section class="quick-stats-section" id="quickStats">
+  <div class="container">
+    <div class="section-label-chip">
+      <i class="fa-solid fa-gauge-high"></i> METRICS AT A GLANCE
+    </div>
+    
+    <div class="stats-grid">
+      <div class="stat-card" data-stat-card>
+        <div class="stat-icon-wrapper">
+          <i class="fa-solid fa-rocket"></i>
+        </div>
+        <div class="stat-number-wrapper">
+          <span class="stat-counter" data-target="24">0</span>
+          <span class="stat-plus">+</span>
+        </div>
+        <div class="stat-label">PROJECTS BUILT</div>
+        <p class="stat-sub">From CLI tools to full-stack applications</p>
+      </div>
+
+      <div class="stat-card" data-stat-card>
+        <div class="stat-icon-wrapper">
+          <i class="fa-solid fa-brain"></i>
+        </div>
+        <div class="stat-number-wrapper">
+          <span class="stat-counter" data-target="350">0</span>
+          <span class="stat-plus">+</span>
+        </div>
+        <div class="stat-label">PROBLEMS SOLVED</div>
+        <p class="stat-sub">Algorithms, data structures & contest challenges</p>
+      </div>
+
+      <div class="stat-card" data-stat-card>
+        <div class="stat-icon-wrapper">
+          <i class="fa-solid fa-cubes"></i>
+        </div>
+        <div class="stat-number-wrapper">
+          <span class="stat-counter" data-target="14">0</span>
+        </div>
+        <div class="stat-label">TECHNOLOGIES</div>
+        <p class="stat-sub">Languages, frameworks, databases & toolchains</p>
+      </div>
+
+      <div class="stat-card" data-stat-card>
+        <div class="stat-icon-wrapper">
+          <i class="fa-solid fa-flag-checkered"></i>
+        </div>
+        <div class="stat-number-wrapper">
+          <span class="stat-counter" data-target="9">0</span>
+        </div>
+        <div class="stat-label">MAJOR MILESTONES</div>
+        <p class="stat-sub">Key turning points in my technical evolution</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Journey Highlights Preview -->
+<section class="home-journey-preview-section">
+  <div class="container">
+    <div class="section-header-row">
+      <div>
+        <div class="section-label-chip"><i class="fa-solid fa-timeline"></i> TIMELINE TEASER</div>
+        <h2 class="section-heading">The Journey So Far</h2>
+        <p class="section-desc">Key moments that fundamentally transformed how I think and code.</p>
+      </div>
+      <a href="{{ url_for('journey') }}" class="view-all-link">
+        <span>View Full Timeline</span>
+        <i class="fa-solid fa-arrow-right"></i>
+      </a>
+    </div>
+
+    <!-- Interactive Mini Timeline -->
+    <div class="mini-timeline-container">
+      {% for m in recent_milestones %}
+      <div class="mini-timeline-node {% if m.status == 'current' %}node-current{% elif m.status == 'completed' %}node-completed{% endif %}">
+        <div class="node-indicator">
+          {% if m.status == 'completed' %}
+            <i class="fa-solid fa-check"></i>
+          {% elif m.status == 'current' %}
+            <span class="ping-circle"></span>
+          {% else %}
+            <span class="hollow-circle"></span>
+          {% endif %}
+        </div>
+        <div class="node-content-card" data-milestone-id="{{ m.id }}">
+          <div class="node-top-bar">
+            <span class="node-year">{{ m.year }}</span>
+            <span class="node-category">{{ m.category }}</span>
+            {% if m.status == 'current' %}
+            <span class="node-current-tag">YOU ARE HERE</span>
+            {% endif %}
+          </div>
+          <h3 class="node-title">{{ m.title }}</h3>
+          <p class="node-tagline">{{ m.tagline }}</p>
+          <div class="node-tech-tags">
+            {% for tech in m.technologies %}
+            <span class="mini-tech-pill">{{ tech }}</span>
+            {% endfor %}
+          </div>
+          <button class="node-expand-btn open-milestone-modal-btn" data-milestone='{{ m | tojson }}'>
+            <span>Read Story</span> <i class="fa-solid fa-book-open"></i>
+          </button>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- Currently Section ("RIGHT NOW") -->
+<section class="currently-section" id="currently">
+  <div class="container">
+    <div class="section-label-chip"><i class="fa-solid fa-compass"></i> REAL-TIME PULSE</div>
+    <h2 class="section-heading">Right Now</h2>
+    <p class="section-desc">No resume filters. What I am actively exploring, hacking on, and aiming for this month.</p>
+
+    <div class="currently-grid">
+      <!-- Currently Learning -->
+      <div class="currently-card">
+        <div class="currently-card-header">
+          <div class="currently-icon-box cyan"><i class="fa-solid fa-graduation-cap"></i></div>
+          <div>
+            <span class="currently-type">CURRENTLY LEARNING</span>
+            <h3 class="currently-title">Deep Technical Topics</h3>
+          </div>
+        </div>
+        <ul class="currently-list">
+          {% for item in current_status.learning %}
+          <li>
+            <span class="arrow-bullet">→</span>
+            <span>{{ item }}</span>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+
+      <!-- Currently Building -->
+      <div class="currently-card highlight-border">
+        <div class="currently-card-header">
+          <div class="currently-icon-box emerald"><i class="fa-solid fa-hammer"></i></div>
+          <div>
+            <span class="currently-type">CURRENTLY BUILDING</span>
+            <h3 class="currently-title">Active Project</h3>
+          </div>
+        </div>
+        <div class="currently-building-body">
+          <div class="building-status-pill">Active Sprint</div>
+          <p class="building-project-name">{{ current_status.building }}</p>
+          <p class="building-project-sub">Designing intuitive step-by-step memory swap animations and custom node graphs.</p>
+        </div>
+      </div>
+
+      <!-- Currently Improving -->
+      <div class="currently-card">
+        <div class="currently-card-header">
+          <div class="currently-icon-box amber"><i class="fa-solid fa-arrow-trend-up"></i></div>
+          <div>
+            <span class="currently-type">CURRENTLY IMPROVING</span>
+            <h3 class="currently-title">Refining My Craft</h3>
+          </div>
+        </div>
+        <ul class="currently-list">
+          {% for item in current_status.improving %}
+          <li>
+            <span class="arrow-bullet">→</span>
+            <span>{{ item }}</span>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+
+      <!-- Next Major Goal -->
+      <div class="currently-card">
+        <div class="currently-card-header">
+          <div class="currently-icon-box purple"><i class="fa-solid fa-bullseye"></i></div>
+          <div>
+            <span class="currently-type">NEXT MAJOR GOAL</span>
+            <h3 class="currently-title">On The Horizon</h3>
+          </div>
+        </div>
+        <div class="next-goal-content">
+          <p class="next-goal-text">
+            <i class="fa-solid fa-sparkles goal-sparkle"></i>
+            {{ current_status.next_goal }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Featured Projects Preview -->
+<section class="home-projects-preview">
+  <div class="container">
+    <div class="section-header-row">
+      <div>
+        <div class="section-label-chip"><i class="fa-solid fa-layer-group"></i> CASE STUDIES</div>
+        <h2 class="section-heading">Featured Things I've Built</h2>
+        <p class="section-desc">Projects that represent major technical leaps, not just completed tutorials.</p>
+      </div>
+      <a href="{{ url_for('projects') }}" class="view-all-link">
+        <span>Explore All 24+ Projects</span>
+        <i class="fa-solid fa-arrow-right"></i>
+      </a>
+    </div>
+
+    <div class="projects-featured-grid">
+      {% for proj in featured_projects %}
+      <article class="featured-project-card" data-project-id="{{ proj.id }}">
+        <div class="project-card-header">
+          <span class="project-badge">{{ proj.badge }}</span>
+          <span class="project-date">{{ proj.date }}</span>
+        </div>
+        <h3 class="project-title">{{ proj.title }}</h3>
+        <p class="project-tagline">{{ proj.tagline }}</p>
+
+        <div class="project-story-snip">
+          <div class="snip-label">THE PROBLEM:</div>
+          <p class="snip-text">{{ proj.story.problem }}</p>
+        </div>
+
+        <div class="project-tech-chips">
+          {% for tech in proj.tech_tags %}
+          <span class="tech-chip">{{ tech }}</span>
+          {% endfor %}
+        </div>
+
+        <div class="project-card-actions">
+          <button class="btn btn-outline btn-sm open-project-modal-btn" data-project='{{ proj | tojson }}'>
+            <i class="fa-solid fa-book-open"></i> Full Story
+          </button>
+          {% if proj.github_url %}
+          <a href="{{ proj.github_url }}" target="_blank" rel="noopener noreferrer" class="icon-link-btn" title="GitHub Repository">
+            <i class="fa-brands fa-github"></i>
+          </a>
+          {% endif %}
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- Interactive Before vs Now Comparison Section -->
+<section class="before-now-preview-section">
+  <div class="container">
+    <div class="section-label-chip"><i class="fa-solid fa-code-compare"></i> GROWTH PERSPECTIVE</div>
+    <h2 class="section-heading">Before vs. Now</h2>
+    <p class="section-desc">Real growth isn't about having all answers; it's about shifting how you think, build, and debug.</p>
+
+    <div class="before-now-container">
+      <div class="before-column">
+        <div class="column-header before-header">
+          <i class="fa-solid fa-clock-rotate-left"></i>
+          <h3>WHEN I STARTED</h3>
+        </div>
+        <div class="comparison-items-list">
+          {% for item in before_vs_now %}
+          <div class="comparison-card before-card">
+            <span class="dimension-tag">{{ item.dimension }}</span>
+            <p>{{ item.before }}</p>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+
+      <div class="versus-divider">
+        <span class="vs-circle">VS</span>
+      </div>
+
+      <div class="now-column">
+        <div class="column-header now-header">
+          <i class="fa-solid fa-wand-magic-sparkles"></i>
+          <h3>HOW I BUILD TODAY</h3>
+        </div>
+        <div class="comparison-items-list">
+          {% for item in before_vs_now %}
+          <div class="comparison-card now-card">
+            <span class="dimension-tag now-tag">{{ item.dimension }}</span>
+            <p>{{ item.now }}</p>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+
+    <div class="center-cta-wrap">
+      <a href="{{ url_for('progress') }}" class="btn btn-outline">
+        <i class="fa-solid fa-chart-line"></i> View Detailed Progress Charts
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Quick Roadmap Teaser -->
+<section class="roadmap-teaser-section">
+  <div class="container">
+    <div class="roadmap-teaser-card">
+      <div class="roadmap-teaser-content">
+        <div class="section-label-chip"><i class="fa-solid fa-map-pin"></i> ROADMAP</div>
+        <h2 class="teaser-heading">The Road Ahead</h2>
+        <p class="teaser-p">From my first loop to distributed systems and open source. The journey doesn't end here.</p>
+        <div class="teaser-steps-flow">
+          <span class="t-step completed">Started Coding ✓</span>
+          <span class="t-arrow">→</span>
+          <span class="t-step completed">Web & DOM ✓</span>
+          <span class="t-arrow">→</span>
+          <span class="t-step completed">Algorithms ✓</span>
+          <span class="t-arrow">→</span>
+          <span class="t-step current">YOU ARE HERE ●</span>
+          <span class="t-arrow">→</span>
+          <span class="t-step future">Open Source & Beyond</span>
+        </div>
+      </div>
+      <div class="roadmap-teaser-action">
+        <a href="{{ url_for('roadmap') }}" class="btn btn-primary">
+          Explore Interactive Roadmap <i class="fa-solid fa-arrow-right"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

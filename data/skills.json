@@ -1,0 +1,338 @@
+{
+  "skills": [
+    {
+      "id": "python",
+      "name": "Python",
+      "category": "languages",
+      "category_name": "Programming Languages",
+      "level": "Proficient / Core",
+      "started": "January 2024",
+      "experience_months": 26,
+      "icon": "code",
+      "summary": "My primary language for algorithms, backend APIs, data scripting, and automation.",
+      "use_cases": [
+        "Backend web services with Flask & REST APIs",
+        "Algorithmic problem solving & data structures",
+        "Scripting, file automation, and data wrangling",
+        "Asynchronous task workers and scrapers"
+      ],
+      "capabilities": [
+        "Decorators, generators, and context managers",
+        "Object-Oriented Design & modular architecture",
+        "Profiling execution time and memory footprint",
+        "Unit testing with pytest and mock assertions"
+      ],
+      "related_projects": [
+        "AlgoVault — Algorithm Visualizer & Catalog",
+        "DevLog CLI & Journal Engine",
+        "StudySync Collaborative API"
+      ],
+      "related_achievements": [
+        "350+ Algorithmic Challenges Solved",
+        "University CodeJam 2025 Finalist",
+        "Algorithmic Complexity & Python Specialist"
+      ],
+      "related_milestones": [
+        "Wrote My Very First Line of Code",
+        "Started Competitive Programming & Algorithms",
+        "Mastering Backend Architecture & Flask"
+      ]
+    },
+    {
+      "id": "javascript",
+      "name": "JavaScript (ES6+)",
+      "category": "languages",
+      "category_name": "Programming Languages",
+      "level": "Intermediate",
+      "started": "November 2024",
+      "experience_months": 16,
+      "icon": "file-code",
+      "summary": "Core client-side engine for interactive web applications, async data fetching, and canvas charts.",
+      "use_cases": [
+        "Dynamic DOM manipulation with zero external frameworks",
+        "Fetch API & asynchronous promise chains",
+        "Canvas & Chart.js data visualization integration",
+        "State management with LocalStorage and custom event dispatchers"
+      ],
+      "capabilities": [
+        "Event loop, microtasks, closures, and prototypes",
+        "Modern ES module patterns and object destructuring",
+        "Debounced input handlers and scroll observers",
+        "Accessible keyboard navigation and focus traps"
+      ],
+      "related_projects": [
+        "Chronos Personal Growth Dashboard",
+        "Interactive Coding Journey Platform",
+        "FocusGrid Pomodoro System"
+      ],
+      "related_achievements": [
+        "Shipped 24 Independent Projects",
+        "HackCode Global Sprint — Runner Up"
+      ],
+      "related_milestones": [
+        "Embraced JavaScript & DOM Manipulation"
+      ]
+    },
+    {
+      "id": "html_css",
+      "name": "HTML5 & Modern CSS3",
+      "category": "web",
+      "category_name": "Web Development",
+      "level": "Proficient",
+      "started": "August 2024",
+      "experience_months": 19,
+      "icon": "layout",
+      "summary": "Semantic structure, responsive typography, modern CSS Grid/Flexbox, and accessible markup.",
+      "use_cases": [
+        "Fluid responsive layouts without CSS frameworks",
+        "Custom design systems with CSS custom properties (variables)",
+        "Glassmorphic surfaces, subtle gradients, and dark mode palettes",
+        "ARIA labels and WCAG AA contrast compliance"
+      ],
+      "capabilities": [
+        "Complex CSS Grid auto-fit and minmax layouts",
+        "Keyframe animations and transition timing curves",
+        "Media queries and touch target sizing",
+        "Semantic document outlines with landmarks"
+      ],
+      "related_projects": [
+        "Interactive Coding Journey Platform",
+        "Minimalist Developer Journal Theme",
+        "DocuBase Documentation Template"
+      ],
+      "related_achievements": [
+        "Shipped 24 Independent Projects",
+        "Full-Stack Web Engineering Certification"
+      ],
+      "related_milestones": [
+        "Discovered the Web: HTML & CSS"
+      ]
+    },
+    {
+      "id": "flask",
+      "name": "Flask & Jinja2",
+      "category": "backend",
+      "category_name": "Backend",
+      "level": "Proficient",
+      "started": "May 2025",
+      "experience_months": 10,
+      "icon": "server",
+      "summary": "Lightweight, flexible Python web microframework for crafting clean REST APIs and server-rendered templates.",
+      "use_cases": [
+        "Modular application structure using Flask Blueprints",
+        "RESTful API design with JSON response serialization",
+        "Template inheritance, filters, and macros in Jinja2",
+        "Session management, cookies, and CORS configuration"
+      ],
+      "capabilities": [
+        "Custom error handlers and status code management",
+        "Request lifecycle hooks (before_request, teardown_request)",
+        "File upload handling with validation and secure filenames",
+        "Integration with SQLite and JSON persistence engines"
+      ],
+      "related_projects": [
+        "StudySync Collaborative API",
+        "Markdown Knowledge Vault",
+        "Interactive Coding Journey Platform"
+      ],
+      "related_achievements": [
+        "HackCode Global Sprint — Runner Up",
+        "Full-Stack Web Engineering Certification"
+      ],
+      "related_milestones": [
+        "Mastering Backend Architecture & Flask"
+      ]
+    },
+    {
+      "id": "sqlite_sql",
+      "name": "SQLite & Relational SQL",
+      "category": "databases",
+      "category_name": "Databases",
+      "level": "Intermediate",
+      "started": "June 2025",
+      "experience_months": 9,
+      "icon": "database",
+      "summary": "Data persistence, schema design, relational normalization, and query optimization.",
+      "use_cases": [
+        "Relational schema modeling with primary and foreign keys",
+        "Complex SQL queries with JOINs, GROUP BY, and aggregates",
+        "Transaction safety and ACID compliance for user records",
+        "Data migration scripts and database seeders"
+      ],
+      "capabilities": [
+        "Third Normal Form (3NF) relational design",
+        "B-Tree indexing strategies for query performance",
+        "Parameterized queries to prevent SQL injection",
+        "Connecting Python sqlite3 module with connection pooling"
+      ],
+      "related_projects": [
+        "StudySync Collaborative API",
+        "Markdown Knowledge Vault"
+      ],
+      "related_achievements": [
+        "Full-Stack Web Engineering Certification"
+      ],
+      "related_milestones": [
+        "Mastering Backend Architecture & Flask"
+      ]
+    },
+    {
+      "id": "git_github",
+      "name": "Git & GitHub",
+      "category": "tools",
+      "category_name": "Tools",
+      "level": "Proficient",
+      "started": "Early 2024",
+      "experience_months": 25,
+      "icon": "git-branch",
+      "summary": "Source control, branching strategies, collaborative pull requests, and commit hygiene.",
+      "use_cases": [
+        "Feature-branch workflows and rebasing vs. merging",
+        "Resolving merge conflicts systematically",
+        "Writing conventional commit messages for readable history",
+        "GitHub Actions CI for linting and test runs"
+      ],
+      "capabilities": [
+        "Interactive rebasing (git rebase -i) and cherry-picking",
+        "Stashing, diff analysis, and reflog recovery",
+        "Setting up SSH keys, remotes, and submodules",
+        "Pull request code reviews and branch protection rules"
+      ],
+      "related_projects": [
+        "All 24 open-source repositories"
+      ],
+      "related_achievements": [
+        "120-Day Daily Coding Streak",
+        "Open Source Bugfix in Flask Ecosystem"
+      ],
+      "related_milestones": [
+        "First 48-Hour Hackathon",
+        "Architecting Larger-Scale Systems"
+      ]
+    },
+    {
+      "id": "algorithms",
+      "name": "Data Structures & Algorithms",
+      "category": "concepts",
+      "category_name": "Concepts",
+      "level": "Proficient",
+      "started": "February 2025",
+      "experience_months": 13,
+      "icon": "cpu",
+      "summary": "Algorithmic thinking, complexity analysis, graph theory, and mathematical problem solving.",
+      "use_cases": [
+        "Big-O asymptotic runtime and memory analysis",
+        "Trees, graphs, heaps, and hash maps implementations",
+        "Dynamic programming and memoization strategies",
+        "Divide and conquer, two-pointer, and binary search techniques"
+      ],
+      "capabilities": [
+        "Implementing Dijkstra's, BFS, DFS, and topological sort",
+        "Trie prefix trees and priority queues from scratch",
+        "Identifying optimal data structures for latency bottlenecks",
+        "Rigorous verification of edge cases and invariants"
+      ],
+      "related_projects": [
+        "AlgoVault — Algorithm Visualizer & Catalog",
+        "GraphPath Finding Simulator"
+      ],
+      "related_achievements": [
+        "350+ Algorithmic Challenges Solved",
+        "University CodeJam 2025 Finalist"
+      ],
+      "related_milestones": [
+        "Started Competitive Programming & Algorithms"
+      ]
+    },
+    {
+      "id": "system_design",
+      "name": "System Architecture & Design",
+      "category": "concepts",
+      "category_name": "Concepts",
+      "level": "Exploring / Active Study",
+      "started": "Late 2025",
+      "experience_months": 5,
+      "icon": "layers",
+      "summary": "Studying distributed systems, caching strategies, rate limiting, and scalable backend architecture.",
+      "use_cases": [
+        "Client-server separation and API contract design",
+        "Caching layers and cache invalidation strategies",
+        "Database indexing vs. write throughput tradeoffs",
+        "Graceful error handling and circuit breaker patterns"
+      ],
+      "capabilities": [
+        "HTTP/1.1 vs HTTP/2 vs WebSocket characteristics",
+        "Stateless vs stateful services and session management",
+        "Designing idempotency keys for API operations",
+        "Architectural documentation with diagrams and decision logs"
+      ],
+      "related_projects": [
+        "Distributed Task Queue Prototype"
+      ],
+      "related_achievements": [
+        "HackCode Global Sprint — Runner Up"
+      ],
+      "related_milestones": [
+        "Architecting Larger-Scale Systems",
+        "Open Source Contributions & Distributed Systems"
+      ]
+    }
+  ],
+  "strengths": [
+    {
+      "title": "Problem Solving",
+      "subtitle": "Breaking complex problems into solvable logical primitives",
+      "description": "I don't panic when faced with an unknown problem or failing test. I isolate variables, draw state diagrams, formulate hypotheses, and step through execution systematically.",
+      "evidence": [
+        "350+ algorithmic challenges solved across LeetCode and Codeforces",
+        "Top 20% competitive ranking achieved through deliberate daily practice",
+        "Finalist in University CodeJam algorithmic sprint"
+      ],
+      "icon": "puzzle"
+    },
+    {
+      "title": "Building & Shipping",
+      "subtitle": "Transforming ideas into tangible, working software",
+      "description": "I prioritize getting things built and working over theoretical procrastination. I take pride in clean code, but even more pride in software that actually runs reliably and solves a real problem.",
+      "evidence": [
+        "24 completed projects built from scratch across 2 years",
+        "Shipped full-stack web applications under 48-hour hackathon deadlines",
+        "Documented each project's architectural decisions, failures, and retrospectives"
+      ],
+      "icon": "hammer"
+    },
+    {
+      "title": "Debugging & Deep-Diving",
+      "subtitle": "Comfortable reading source code and following stack traces to root cause",
+      "description": "When an error occurs, I don't randomly change code hoping it works. I read stack traces, inspect network payloads, inspect memory structures, and read the underlying library source code.",
+      "evidence": [
+        "Resolved complex multi-thread and async race conditions in project sprints",
+        "Submitted and merged bug fix upstream in open-source Python ecosystem",
+        "Compiled a detailed personal diary of 15+ complex bugs and solutions"
+      ],
+      "icon": "search"
+    },
+    {
+      "title": "Persistence & Consistency",
+      "subtitle": "Show up every day, especially when the concepts are hard",
+      "description": "Learning to program requires enduring periods of confusion when new abstractions feel completely foreign. I treat frustration as the exact signal that learning is happening.",
+      "evidence": [
+        "120-day uninterrupted consecutive coding streak logged on GitHub",
+        "Transitioned from zero programming knowledge to full-stack engineering in 24 months",
+        "Pushed through challenging topics like recursion, pointers, and concurrency"
+      ],
+      "icon": "shield-check"
+    },
+    {
+      "title": "Relentless Curiosity",
+      "subtitle": "Always asking 'How does this actually work under the hood?'",
+      "description": "I'm never satisfied with just importing a magic package. I want to understand how the browser renders pixels, how the event loop schedules microtasks, and how HTTP headers travel across the wire.",
+      "evidence": [
+        "Built custom routing and templating tools before using external frameworks",
+        "Implemented fundamental data structures (HashMaps, Linked Lists, Trees) from scratch",
+        "Authored in-depth technical breakdowns and learning notes for every milestone"
+      ],
+      "icon": "compass"
+    }
+  ]
+}

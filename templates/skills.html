@@ -1,0 +1,144 @@
+{% extends 'base.html' %}
+
+{% block title %}Skills & Progression — Capabilities Over Percentages{% endblock %}
+
+{% block content %}
+<div class="page-header-section">
+  <div class="container">
+    <div class="section-label-chip"><i class="fa-solid fa-code"></i> HONEST CAPABILITIES</div>
+    <h1 class="page-main-title">SKILLS & PROGRESSION</h1>
+    <p class="page-subtitle">
+      No arbitrary "90% Python" sliders. Real programming skills are measured by actual capabilities, problems solved, architectural decisions, and production mileage.
+    </p>
+
+    <!-- Skill Category Filter -->
+    <div class="filter-pills-row" id="skillCategoryFilters">
+      <button class="filter-pill active" data-skill-cat="all">ALL DOMAINS</button>
+      <button class="filter-pill" data-skill-cat="languages">LANGUAGES</button>
+      <button class="filter-pill" data-skill-cat="web">WEB DEV</button>
+      <button class="filter-pill" data-skill-cat="backend">BACKEND</button>
+      <button class="filter-pill" data-skill-cat="databases">DATABASES</button>
+      <button class="filter-pill" data-skill-cat="tools">TOOLS</button>
+      <button class="filter-pill" data-skill-cat="concepts">CONCEPTS & THEORY</button>
+    </div>
+  </div>
+</div>
+
+<!-- Skills Progression Grid -->
+<section class="skills-grid-section">
+  <div class="container">
+    <div class="skills-catalog-grid" id="skillsCatalogGrid">
+      {% for s in skills %}
+      <article class="skill-progression-card glass-panel" data-category="{{ s.category }}" data-skill-id="{{ s.id }}">
+        <div class="skill-card-top">
+          <div class="skill-name-row">
+            <div class="skill-icon-cube">
+              {% if s.category == 'languages' %}
+                <i class="fa-solid fa-code"></i>
+              {% elif s.category == 'web' %}
+                <i class="fa-solid fa-laptop-code"></i>
+              {% elif s.category == 'backend' %}
+                <i class="fa-solid fa-server"></i>
+              {% elif s.category == 'databases' %}
+                <i class="fa-solid fa-database"></i>
+              {% elif s.category == 'tools' %}
+                <i class="fa-solid fa-wrench"></i>
+              {% else %}
+                <i class="fa-solid fa-brain"></i>
+              {% endif %}
+            </div>
+            <div>
+              <h3 class="skill-title">{{ s.name }}</h3>
+              <span class="skill-domain-tag">{{ s.category_name }}</span>
+            </div>
+          </div>
+          <span class="skill-level-badge">{{ s.level }}</span>
+        </div>
+
+        <div class="skill-meta-bar">
+          <span class="meta-item"><i class="fa-regular fa-clock"></i> Started: <strong>{{ s.started }}</strong></span>
+          <span class="meta-item"><i class="fa-solid fa-chart-simple"></i> Experience: <strong>{{ s.experience_months }} mos</strong></span>
+        </div>
+
+        <p class="skill-summary">{{ s.summary }}</p>
+
+        <!-- Use cases -->
+        <div class="skill-use-cases">
+          <span class="use-cases-label">I USE IT FOR:</span>
+          <ul class="use-cases-list">
+            {% for uc in s.use_cases %}
+            <li><i class="fa-solid fa-check"></i> {{ uc }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+
+        <!-- Related Projects Tags -->
+        <div class="skill-projects-foot">
+          <span class="foot-label">PROVEN IN:</span>
+          <div class="foot-tags">
+            {% for proj in s.related_projects %}
+            <span class="foot-tag">{{ proj }}</span>
+            {% endfor %}
+          </div>
+        </div>
+
+        <div class="skill-card-actions">
+          <button class="btn btn-outline btn-sm full-width open-skill-modal-btn" data-skill='{{ s | tojson }}'>
+            <i class="fa-solid fa-magnifying-glass"></i> View Complete Capabilities & Proof
+          </button>
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- Strong Points Section: "WHAT I'M GOOD AT" -->
+<section class="strengths-section" id="strengths">
+  <div class="container">
+    <div class="section-label-chip"><i class="fa-solid fa-fire"></i> DISTINCTIVE ADVANTAGES</div>
+    <h2 class="section-heading">What I'm Good At</h2>
+    <p class="section-desc">Not generic adjectives or buzzwords. Every single core strength backed by verifiable engineering evidence.</p>
+
+    <div class="strengths-grid">
+      {% for st in strengths %}
+      <div class="strength-card glass-panel">
+        <div class="strength-header">
+          <div class="strength-icon-box">
+            {% if st.icon == 'puzzle' %}
+              <i class="fa-solid fa-puzzle-piece"></i>
+            {% elif st.icon == 'hammer' %}
+              <i class="fa-solid fa-hammer"></i>
+            {% elif st.icon == 'search' %}
+              <i class="fa-solid fa-bug-slash"></i>
+            {% elif st.icon == 'shield-check' %}
+              <i class="fa-solid fa-shield-halved"></i>
+            {% else %}
+              <i class="fa-solid fa-compass"></i>
+            {% endif %}
+          </div>
+          <div>
+            <h3 class="strength-title">{{ st.title }}</h3>
+            <p class="strength-sub">{{ st.subtitle }}</p>
+          </div>
+        </div>
+
+        <p class="strength-desc">{{ st.description }}</p>
+
+        <div class="strength-evidence-panel">
+          <div class="evidence-title-row">
+            <i class="fa-solid fa-square-check"></i>
+            <span>THE EVIDENCE</span>
+          </div>
+          <ul class="evidence-list">
+            {% for ev in st.evidence %}
+            <li>{{ ev }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}

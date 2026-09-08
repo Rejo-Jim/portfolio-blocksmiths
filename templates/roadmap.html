@@ -1,0 +1,107 @@
+{% extends 'base.html' %}
+
+{% block title %}Interactive Roadmap — Past, Present & Future{% endblock %}
+
+{% block content %}
+<div class="page-header-section">
+  <div class="container">
+    <div class="section-label-chip"><i class="fa-solid fa-map-location-dot"></i> TRAJECTORY MAP</div>
+    <h1 class="page-main-title">THE ROADMAP</h1>
+    <p class="page-subtitle">
+      Where I began, where I am right now, and the frontiers I am actively working towards next.
+    </p>
+
+    <!-- Status Badge -->
+    <div class="roadmap-active-badge">
+      <span class="pulsing-radar-dot"></span>
+      <span>CURRENT POSITION: ADVANCED ARCHITECTURES & DISTRIBUTED SYSTEMS</span>
+    </div>
+  </div>
+</div>
+
+<section class="roadmap-section">
+  <div class="container">
+    
+    <!-- Vertical Roadmap Stepper Pipeline -->
+    <div class="roadmap-pipeline">
+      
+      <!-- Start Node -->
+      <div class="roadmap-station start-station">
+        <div class="station-icon"><i class="fa-solid fa-play"></i></div>
+        <div class="station-label">START</div>
+      </div>
+      <div class="station-connector completed"></div>
+
+      <!-- Roadmap steps loop -->
+      {% for step in roadmap %}
+      <div class="roadmap-station-row {% if step.status == 'completed' %}is-completed{% elif step.status == 'current' %}is-current{% else %}is-future{% endif %}" data-step-id="{{ step.id }}">
+        
+        <!-- Indicator Node -->
+        <div class="station-marker">
+          {% if step.status == 'completed' %}
+            <span class="marker-check"><i class="fa-solid fa-check"></i></span>
+          {% elif step.status == 'current' %}
+            <span class="marker-ping-ring"></span>
+            <span class="marker-glowing-dot">●</span>
+          {% else %}
+            <span class="marker-dashed-circle"></span>
+          {% endif %}
+        </div>
+
+        <!-- Content Card -->
+        <div class="station-card glass-panel">
+          <div class="station-card-top">
+            <span class="station-year">{{ step.year }}</span>
+            {% if step.status == 'completed' %}
+              <span class="station-status-pill completed">COMPLETED ✓</span>
+            {% elif step.status == 'current' %}
+              <span class="station-status-pill current">YOU ARE HERE ●</span>
+            {% else %}
+              <span class="station-status-pill future">FUTURE TARGET</span>
+            {% endif %}
+          </div>
+          <h3 class="station-title">{{ step.title }}</h3>
+          <p class="station-detail">{{ step.detail }}</p>
+        </div>
+
+      </div>
+
+      <!-- Connector line -->
+      {% if not loop.last %}
+      <div class="station-connector {% if step.status == 'completed' %}completed{% elif step.status == 'current' %}active-flowing{% else %}future{% endif %}"></div>
+      {% endif %}
+      {% endfor %}
+
+      <!-- Future Unknown Horizon -->
+      <div class="station-connector future"></div>
+      <div class="roadmap-station future-station">
+        <div class="station-icon"><i class="fa-solid fa-question"></i></div>
+        <div class="station-label">???</div>
+      </div>
+
+    </div>
+
+    <!-- Final Banner: "THE JOURNEY ISN'T FINISHED." -->
+    <div class="journey-unfinished-banner glass-panel">
+      <div class="banner-inner">
+        <div class="unfinished-icon">
+          <i class="fa-solid fa-compass-drafting"></i>
+        </div>
+        <div class="unfinished-text-content">
+          <h2 class="unfinished-heading">THE JOURNEY ISN'T FINISHED.</h2>
+          <p class="unfinished-sub">
+            There is no final level in software engineering. Every solution reveals new systems to understand, higher performance thresholds to chase, and more elegant abstractions to discover.
+          </p>
+          <div class="unfinished-status-row">
+            <span class="console-tag"><i class="fa-solid fa-terminal"></i> echo "Still building, still learning."</span>
+            <a href="{{ url_for('journey') }}" class="btn btn-primary btn-sm">
+              <i class="fa-solid fa-clock-rotate-left"></i> Revisit The Timeline
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+{% endblock %}

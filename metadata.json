@@ -1,0 +1,6 @@
+{
+  "name": "My Coding Journey",
+  "description": "An interactive coding journey, developer diary, progress dashboard, and achievement tracker.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

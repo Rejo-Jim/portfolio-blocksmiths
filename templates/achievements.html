@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+
+{% block title %}Achievements & Milestones{% endblock %}
+
+{% block content %}
+<div class="page-header-section">
+  <div class="container">
+    <div class="section-label-chip"><i class="fa-solid fa-trophy"></i> VERIFIED MILESTONES</div>
+    <h1 class="page-main-title">ACHIEVEMENTS</h1>
+    <p class="page-subtitle">
+      Concrete milestones, competition rankings, certifications, and consistency streaks unlocked along the way.
+    </p>
+
+    <!-- Working Filters -->
+    <div class="filter-pills-row" id="achievementFilters">
+      <button class="filter-pill active" data-filter="all">ALL</button>
+      <button class="filter-pill" data-filter="competitions">COMPETITIONS</button>
+      <button class="filter-pill" data-filter="hackathons">HACKATHONS</button>
+      <button class="filter-pill" data-filter="projects">PROJECTS</button>
+      <button class="filter-pill" data-filter="certifications">CERTIFICATIONS</button>
+      <button class="filter-pill" data-filter="coding_platforms">CODING PLATFORMS</button>
+      <button class="filter-pill" data-filter="milestones">MILESTONES</button>
+    </div>
+  </div>
+</div>
+
+<section class="achievements-section">
+  <div class="container">
+    <div class="achievements-grid" id="achievementsGrid">
+      {% for ach in achievements %}
+      <div class="achievement-card glass-panel" data-category="{{ ach.category }}" data-achievement-id="{{ ach.id }}">
+        <div class="ach-top-row">
+          <div class="ach-icon-box">
+            {% if ach.category == 'hackathons' %}
+              <i class="fa-solid fa-trophy"></i>
+            {% elif ach.category == 'competitions' %}
+              <i class="fa-solid fa-medal"></i>
+            {% elif ach.category == 'coding_platforms' %}
+              <i class="fa-solid fa-code"></i>
+            {% elif ach.category == 'certifications' %}
+              <i class="fa-solid fa-certificate"></i>
+            {% elif ach.category == 'projects' %}
+              <i class="fa-solid fa-rocket"></i>
+            {% elif ach.category == 'milestones' %}
+              <i class="fa-solid fa-fire"></i>
+            {% else %}
+              <i class="fa-solid fa-star"></i>
+            {% endif %}
+          </div>
+          <span class="ach-badge">{{ ach.badge }}</span>
+        </div>
+
+        <div class="ach-date-tag">
+          <i class="fa-regular fa-calendar"></i> {{ ach.date }}
+        </div>
+
+        <h3 class="ach-title">{{ ach.title }}</h3>
+        <p class="ach-desc">{{ ach.description }}</p>
+
+        <div class="ach-evidence-box">
+          <div class="evidence-header">
+            <i class="fa-solid fa-shield-check"></i>
+            <span>VERIFIABLE EVIDENCE</span>
+          </div>
+          <p class="evidence-text">{{ ach.evidence }}</p>
+        </div>
+
+        <div class="ach-footer">
+          <span class="ach-cat-pill">{{ ach.category_display }}</span>
+          {% if ach.link %}
+          <a href="{{ ach.link }}" target="_blank" rel="noopener noreferrer" class="ach-link-btn" title="View external verification">
+            <span>Verify</span> <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </a>
+          {% endif %}
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+    <!-- Empty state for filter -->
+    <div id="noAchievementsFound" class="empty-filter-state" style="display: none;">
+      <i class="fa-regular fa-folder-open"></i>
+      <p>No achievements found in this category.</p>
+    </div>
+  </div>
+</section>
+{% endblock %}

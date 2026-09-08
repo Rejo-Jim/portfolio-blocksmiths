@@ -1,0 +1,128 @@
+[
+  {
+    "id": "algovault",
+    "title": "AlgoVault",
+    "tagline": "Interactive Algorithm Visualizer & Complexity Comparator",
+    "category": "Algorithms",
+    "tech_tags": ["Python", "JavaScript", "CSS3", "Algorithms"],
+    "date": "December 2025",
+    "stars": 42,
+    "github_url": "https://github.com/example/algovault",
+    "demo_url": "#",
+    "badge": "Featured Project",
+    "story": {
+      "why": "When studying graph algorithms and sorting mechanisms for competitive programming, dry pseudo-code in textbooks made it hard to develop intuition for edge-case traversals.",
+      "problem": "Static textbook diagrams fail to show how pointers mutate state in real time, especially during recursive calls, tree rebalancing, and heapify passes.",
+      "how_solved": "Engineered a frame-by-frame execution engine in JavaScript that serializes data structure states, tracks memory swap operations, and renders step-by-step playback with speed controls.",
+      "technologies": ["Python", "Flask", "Vanilla JavaScript (Canvas & DOM)", "CSS Custom Properties"],
+      "challenges": "Handling pause/resume states across deep recursive tree traversals without blocking the UI thread or exceeding browser call stack limits. Solved using async generator functions that yield execution state step-by-step.",
+      "learned": "Visual intuition turns hard algorithmic concepts into second nature. Also learned the immense power of JavaScript generator functions for stateful animations.",
+      "improvements": "Add support for custom graph input via interactive drag-and-drop nodes and integrate real-time Big-O asymptotic curve overlays."
+    }
+  },
+  {
+    "id": "studysync",
+    "title": "StudySync",
+    "tagline": "Real-time Collaborative Focus Rooms & Resource Vault",
+    "category": "Full-Stack Web",
+    "tech_tags": ["Python", "Flask", "SQLite", "REST APIs", "JavaScript"],
+    "date": "May 2025",
+    "stars": 28,
+    "github_url": "https://github.com/example/studysync",
+    "demo_url": "#",
+    "badge": "Hackathon 2nd Place",
+    "story": {
+      "why": "Built during the 48-hour HackCode Global Sprint. Remote study groups during exam seasons suffered from fragmented tools—jumping between video calls, shared docs, and timers.",
+      "problem": "Students lost 20+ minutes per session coordinating materials, synchronization of focus blocks, and shared note links across 4 different platforms.",
+      "how_solved": "Architected a unified Flask application featuring synchronized room clocks, pinned resource boards, markdown notes, and minimal distraction interfaces.",
+      "technologies": ["Python", "Flask", "SQLite3", "Vanilla JS", "Server-Sent Events (SSE)"],
+      "challenges": "Synchronizing timer states across different device latency offsets during a 48-hour sprint. Implemented a server-authoritative timestamp calculation to eliminate client clock drift.",
+      "learned": "How to rapidly scope an MVP under tight time pressure, communicate effectively with teammates, and write resilient backend error middleware.",
+      "improvements": "Replace SSE polling with WebSockets and introduce persistent voice channels using WebRTC."
+    }
+  },
+  {
+    "id": "devlog-cli",
+    "title": "DevLog Engine",
+    "tagline": "Terminal-first Developer Journal with Git Commit Correlation",
+    "category": "CLI Tools",
+    "tech_tags": ["Python", "File I/O", "CLI", "Git"],
+    "date": "October 2024",
+    "stars": 19,
+    "github_url": "https://github.com/example/devlog-cli",
+    "demo_url": "#",
+    "badge": "Daily Driver",
+    "story": {
+      "why": "I wanted an frictionless way to document what I learned every day directly from my terminal without breaking flow state or opening heavy note apps.",
+      "problem": "Context switching to browser apps caused distraction, and notes were rarely tagged with the exact git commits where lessons actually occurred.",
+      "how_solved": "Built a fast command-line utility in Python that inspects local git repositories, captures the latest commit message and diff, and appends structured markdown journal entries.",
+      "technologies": ["Python", "Argparse", "Subprocess", "Markdown Parsing", "JSON"],
+      "challenges": "Cross-platform terminal path resolution and handling detached HEAD git states gracefully without crashing the CLI prompt.",
+      "learned": "UNIX philosophy: write programs that do one thing well and compose with standard stdin/stdout streams.",
+      "improvements": "Package as a pip distribution on PyPI and add automated weekly digest generation."
+    }
+  },
+  {
+    "id": "chronos-dashboard",
+    "title": "Chronos Growth Dashboard",
+    "tagline": "Personal Productivity & Learning Analytics Visualizer",
+    "category": "Data & Analytics",
+    "tech_tags": ["JavaScript", "Chart.js", "CSS3", "HTML5"],
+    "date": "January 2026",
+    "stars": 34,
+    "github_url": "https://github.com/example/chronos-dashboard",
+    "demo_url": "#",
+    "badge": "Active System",
+    "story": {
+      "why": "Traditional habit trackers are rigid and track simplistic boolean checkboxes. I wanted to quantify actual coding hours, difficulty tiers of solved problems, and language shifts.",
+      "problem": "Lack of visual feedback made it hard to see macro progress over months, causing occasional bouts of imposter syndrome.",
+      "how_solved": "Designed a responsive client-side dashboard with interactive Chart.js visualizations that ingest JSON-exported coding logs and render multi-axis growth trends.",
+      "technologies": ["HTML5", "CSS Grid & Variables", "Vanilla JavaScript", "Chart.js"],
+      "challenges": "Ensuring responsive canvas chart resizing without blurry high-DPI scaling artifacts on mobile screens and maintaining smooth 60fps animations.",
+      "learned": "Device pixel ratios in canvas rendering, data normalization principles, and color contrast accessibility for complex charts.",
+      "improvements": "Direct integration with GitHub GraphQL API and LeetCode profile scraper for automated daily synchronization."
+    }
+  },
+  {
+    "id": "markdown-vault",
+    "title": "Markdown Knowledge Vault",
+    "tagline": "Lightweight Self-hosted Wiki with Bidirectional Links",
+    "category": "Full-Stack Web",
+    "tech_tags": ["Python", "Flask", "SQLite", "Markdown"],
+    "date": "September 2025",
+    "stars": 15,
+    "github_url": "https://github.com/example/markdown-vault",
+    "demo_url": "#",
+    "badge": "Core Tool",
+    "story": {
+      "why": "Frustrated by proprietary note-taking tools locking personal thoughts behind paywalls and binary formats, I wanted a local-first plain text system.",
+      "problem": "Linking concepts across multiple technical domains (e.g. databases, algorithms, operating systems) required bidirectional [[wiki-links]] that standard markdown viewers lack.",
+      "how_solved": "Built a Flask web app that scans local markdown files, indexes header tags and [[bracketed]] references into an SQLite inverted index, and renders an interactive relationship graph.",
+      "technologies": ["Python", "Flask", "SQLite FTS5 (Full Text Search)", "Jinja2", "RegEx"],
+      "challenges": "Building a custom regex parser that handles nested code blocks and escape sequences without false-positive link matches.",
+      "learned": "Relational graph indexing, SQLite full-text search extensions, and template caching strategies.",
+      "improvements": "Add an interactive force-directed canvas graph using D3.js to navigate the note constellation visually."
+    }
+  },
+  {
+    "id": "focusgrid",
+    "title": "FocusGrid Pomodoro",
+    "tagline": "Distraction-Free Ambient Focus Companion",
+    "category": "Web Tools",
+    "tech_tags": ["JavaScript", "HTML5", "CSS3", "Web Audio API"],
+    "date": "November 2024",
+    "stars": 12,
+    "github_url": "https://github.com/example/focusgrid",
+    "demo_url": "#",
+    "badge": "Milestone Project",
+    "story": {
+      "why": "My very first multi-component frontend project after finishing DOM manipulation fundamentals. I wanted a timer that respected browser privacy with zero tracking.",
+      "problem": "Most web timers are bloated with ads, require accounts, or lose state if you accidentally reload the tab.",
+      "how_solved": "Crafted an ultra-clean, dark glassmorphic web app with browser Web Workers for accurate background interval tracking and Web Audio API synthesized chimes.",
+      "technologies": ["Vanilla JavaScript", "Web Audio API", "Web Workers", "CSS Animations"],
+      "challenges": "Browser tab throttling when inactive caused setInterval to drift. Solved by shifting interval tracking into a dedicated Web Worker thread.",
+      "learned": "Browser background execution constraints, thread separation in modern web browsers, and synthesized audio frequencies.",
+      "improvements": "Add keyboard shortcuts (Space to toggle, R to reset, S to skip) and ambient brown noise generator."
+    }
+  }
+]

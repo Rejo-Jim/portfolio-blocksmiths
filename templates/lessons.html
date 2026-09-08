@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+
+{% block title %}Lessons & Failures — Things That Didn't Go As Planned{% endblock %}
+
+{% block content %}
+<div class="page-header-section">
+  <div class="container">
+    <div class="section-label-chip"><i class="fa-solid fa-triangle-exclamation"></i> AUTHENTIC REFLECTIONS</div>
+    <h1 class="page-main-title">THINGS THAT DIDN'T GO AS PLANNED</h1>
+    <p class="page-subtitle">
+      A developer's journey isn't a flawless highlight reel. The true breakthroughs happened when systems crashed, git histories were nuked, queries stalled, and late-night bugs refused to yield.
+    </p>
+
+    <div class="failure-creed-box">
+      <i class="fa-solid fa-quote-left creed-quote"></i>
+      <p class="creed-text">
+        "Failure is not the opposite of progress; it is the exact mechanism by which a programmer builds intuition."
+      </p>
+    </div>
+  </div>
+</div>
+
+<section class="lessons-stream-section">
+  <div class="container">
+    <div class="lessons-grid">
+      {% for lesson in lessons %}
+      <article class="lesson-retrospective-card glass-panel" data-lesson-id="{{ lesson.id }}">
+        
+        <!-- Lesson Header -->
+        <div class="lesson-card-head">
+          <div class="lesson-meta-row">
+            <span class="lesson-cat-tag">{{ lesson.category }}</span>
+            <span class="lesson-date"><i class="fa-regular fa-calendar"></i> {{ lesson.date }}</span>
+          </div>
+          <span class="lesson-severity-badge">{{ lesson.severity }}</span>
+        </div>
+
+        <h2 class="lesson-title">{{ lesson.title }}</h2>
+
+        <!-- The 3 Core Sections Required: WHAT HAPPENED / WHAT I LEARNED / WHAT I'D DO DIFFERENTLY -->
+        <div class="lesson-story-trio">
+          
+          <!-- 1. What Happened -->
+          <div class="trio-block what-happened-block">
+            <div class="trio-label">
+              <span class="trio-bullet red"></span>
+              <span>WHAT HAPPENED</span>
+            </div>
+            <p class="trio-text">{{ lesson.what_happened }}</p>
+          </div>
+
+          <!-- 2. What I Learned -->
+          <div class="trio-block what-learned-block">
+            <div class="trio-label">
+              <span class="trio-bullet yellow"></span>
+              <span>WHAT I LEARNED</span>
+            </div>
+            <p class="trio-text">{{ lesson.what_learned }}</p>
+          </div>
+
+          <!-- 3. What I'd Do Differently Now -->
+          <div class="trio-block what-differently-block">
+            <div class="trio-label">
+              <span class="trio-bullet green"></span>
+              <span>WHAT I'D DO DIFFERENTLY NOW</span>
+            </div>
+            <p class="trio-text">{{ lesson.what_differently }}</p>
+          </div>
+
+        </div>
+
+        <!-- Card Footer -->
+        <div class="lesson-card-foot">
+          <span class="lesson-tag-pill"><i class="fa-solid fa-hashtag"></i> {{ lesson.tag }}</span>
+          <span class="lesson-takeaway-indicator"><i class="fa-solid fa-check-double"></i> Verified Lesson Integrated</span>
+        </div>
+
+      </article>
+      {% endfor %}
+    </div>
+
+    <!-- Final Journal Reflection Card -->
+    <div class="lessons-summary-callout glass-panel">
+      <div class="callout-icon-circle">
+        <i class="fa-solid fa-lightbulb"></i>
+      </div>
+      <div class="callout-content">
+        <h3>The Biggest Takeaway Across 2+ Years of Coding</h3>
+        <p>
+          In the beginning, every compiler error and runtime exception felt like a personal failure or proof that I wasn't cut out for computer science. Today, I view every bug as a conversation with the machine. The computer is never being malicious—it is simply executing exactly what I asked it to do, with zero assumptions. Learning to listen to that feedback without emotion is the superpower that makes a real programmer.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

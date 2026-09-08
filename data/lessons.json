@@ -1,0 +1,68 @@
+[
+  {
+    "id": "lesson-1",
+    "title": "The 14-Hour Off-By-One Bug in Binary Search",
+    "category": "Bugs & Debugging",
+    "date": "March 2025",
+    "severity": "High Frustration, High Learning",
+    "tag": "Algorithmic Pitfall",
+    "what_happened": "I was writing a custom binary search variant for finding the first position of an element in a rotated sorted array. My solution kept entering an infinite while loop on test cases with duplicate values. Instead of writing out the loop invariants, I randomly toggled `low = mid + 1` and `high = mid - 1` back and forth for 14 hours over two days, convinced the test harness was wrong.",
+    "what_learned": "Trial-and-error debugging on binary boundaries is a recipe for madness. Binary search requires a mathematically proven invariant: whether the search range is `[low, high]` or `[low, high)`, and what exact condition maintains that invariant at every step.",
+    "what_differently": "Now, whenever writing boundary logic, I write the invariant explicitly in code comments before typing the while loop, and I immediately test on three minimal edge cases: empty array, single element, and two elements with duplicate values."
+  },
+  {
+    "id": "lesson-2",
+    "title": "Premature Microservices in a 48-Hour Hackathon Prototype",
+    "category": "Architecture Mistake",
+    "date": "May 2025",
+    "severity": "Lost 8 Hours of Sleep",
+    "tag": "Over-engineering",
+    "what_happened": "In the first 12 hours of our hackathon, I insisted on splitting our application into three separate services: an auth service, an API server, and a background worker, communicating over HTTP requests. We spent the entire middle night debugging CORS headers, port conflicts, and failed service discovery instead of building features.",
+    "what_learned": "Over-engineering is just as fatal as writing sloppy code. A simple monolithic Flask app with clean module boundaries would have taken 2 hours to set up and allowed us to ship three times as many user-facing features.",
+    "what_differently": "Always start with a clean, modular monolith. Extract services only when there is empirical evidence of organizational or scaling bottlenecks, never for speculative elegance."
+  },
+  {
+    "id": "lesson-3",
+    "title": "Ignoring Git Branching and Overwriting 3 Days of Work",
+    "category": "Version Control",
+    "date": "September 2024",
+    "severity": "Terrifying Moment",
+    "tag": "Git Mistake",
+    "what_happened": "Early in my journey, I worked directly on `main`. I decided to test a radical refactoring and tried to roll it back using `git reset --hard` without committing my untracked files or understanding what the command actually does. 3 days of uncommitted custom CSS and JS vanished.",
+    "what_learned": "Git is an amazing safety net, but only if you actually commit. The command line doesn't ask twice if you issue a destructive flag like `--hard`.",
+    "what_differently": "I commit early and often in dedicated feature branches (`feature/my-experiment`). Before doing any history alteration, I always run `git stash` or create a temporary recovery branch. I also learned how to use `git reflog`."
+  },
+  {
+    "id": "lesson-4",
+    "title": "The Asynchronous Race Condition in Dynamic DOM Rendering",
+    "category": "Difficult Concepts",
+    "date": "December 2024",
+    "severity": "Intermittent Ghost Bug",
+    "tag": "JavaScript Async",
+    "what_happened": "In a dashboard project, user search queries triggered asynchronous fetch calls. If a user typed quickly ('py' followed by 'python'), the response for the first shorter query sometimes arrived after the second query, overwriting the newer results with stale data. The bug only occurred on mobile 4G connections and seemed impossible to reproduce locally.",
+    "what_learned": "Network requests do not resolve in the order they were dispatched. Handling concurrent user input requires either request cancellation (via `AbortController`) or an incremental request counter to discard outdated responses.",
+    "what_differently": "Every time I hook up user input to an asynchronous API, I implement an `AbortController` signal to abort in-flight requests on new keystrokes, combined with proper debouncing."
+  },
+  {
+    "id": "lesson-5",
+    "title": "The N+1 Database Query Trap that Brought Down My Demo",
+    "category": "Performance Bottleneck",
+    "date": "October 2025",
+    "severity": "Server 504 Gateway Timeout",
+    "tag": "Database Design",
+    "what_happened": "In a social notes project, I rendered a list of 100 notes. Inside the Jinja template loop, I called a helper that executed a separate SQL query for each note's author profile and tag list. With 100 notes, each page load fired 301 distinct SQL queries against SQLite, grinding page response times to 8.2 seconds.",
+    "what_learned": "Template helpers that hide database queries are dangerous illusions. The N+1 query problem is one of the most common performance killers in web development.",
+    "what_differently": "I now write joined SQL queries or batch-fetch related records using `IN (...)` queries at the route level, keeping templates purely presentational and measuring query count during development."
+  },
+  {
+    "id": "lesson-6",
+    "title": "Tutorial Hell and the Illusion of Competence",
+    "category": "Mindset & Growth",
+    "date": "June 2024",
+    "severity": "2 Months of Stalled Real Growth",
+    "tag": "Learning Strategy",
+    "what_happened": "During my first summer of coding, I watched 40+ hours of video tutorials, coding along step-by-step. Everything felt easy. But when I opened an empty text editor to build a simple project by myself, my mind went completely blank. I couldn't even set up the initial file structure without following a video.",
+    "what_learned": "Watching someone else solve a problem creates a dangerous illusion of competence. Real understanding only forms when you struggle through the blank page, encounter errors, and debug them yourself without a video to guide you.",
+    "what_differently": "I adopted the 20/80 rule: spend 20% of time reading or watching, and 80% of time building original projects from scratch with documentation as the only reference."
+  }
+]

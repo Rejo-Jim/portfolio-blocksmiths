@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}My Coding Journey{% endblock %} | Alex Rivera</title>
+  <meta name="description" content="A visual story of how I started coding, what I've learned, what I've built, what I've achieved, and where I'm going next.">
+  <meta property="og:title" content="My Coding Journey — Developer Diary & Milestones">
+  <meta property="og:description" content="From my first lines of code to the things I'm building today.">
+  <meta property="og:type" content="website">
+
+  <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome Icons CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Chart.js CDN for responsive data visualizations -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+
+  <!-- Main Custom CSS -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="site-body">
+  <!-- Top Progress Bar (Scroll indicator) -->
+  <div id="scrollProgressBar" class="scroll-progress-bar" aria-hidden="true"></div>
+
+  <!-- Sticky Navigation Bar -->
+  <header class="navbar-wrapper sticky-nav" id="mainHeader">
+    <div class="nav-container">
+      <a href="{{ url_for('home') }}" class="nav-brand" aria-label="Home page">
+        <span class="brand-bracket">{</span>
+        <span class="brand-text">alex.journey</span>
+        <span class="brand-bracket">}</span>
+      </a>
+
+      <!-- Current Status Pill in Nav -->
+      <div class="status-indicator-badge" title="Coding & learning actively">
+        <span class="status-dot"></span>
+        <span class="status-text">JOURNEY IN PROGRESS</span>
+      </div>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="desktop-nav" aria-label="Main Navigation">
+        <a href="{{ url_for('home') }}" class="nav-link {% if active_page == 'home' %}active{% endif %}">Home</a>
+        <a href="{{ url_for('journey') }}" class="nav-link {% if active_page == 'journey' %}active{% endif %}">Journey</a>
+        <a href="{{ url_for('achievements') }}" class="nav-link {% if active_page == 'achievements' %}active{% endif %}">Achievements</a>
+        <a href="{{ url_for('skills') }}" class="nav-link {% if active_page == 'skills' %}active{% endif %}">Skills</a>
+        <a href="{{ url_for('projects') }}" class="nav-link {% if active_page == 'projects' %}active{% endif %}">Projects</a>
+        <a href="{{ url_for('progress') }}" class="nav-link {% if active_page == 'progress' %}active{% endif %}">Progress</a>
+        <a href="{{ url_for('lessons') }}" class="nav-link {% if active_page == 'lessons' %}active{% endif %}">Lessons</a>
+        <a href="{{ url_for('roadmap') }}" class="nav-link {% if active_page == 'roadmap' %}active{% endif %}">Roadmap</a>
+      </nav>
+
+      <!-- Mobile Hamburger Button -->
+      <button class="hamburger-btn" id="hamburgerBtn" aria-label="Toggle Navigation Menu" aria-expanded="false" aria-controls="mobileMenu">
+        <span class="bar bar-1"></span>
+        <span class="bar bar-2"></span>
+        <span class="bar bar-3"></span>
+      </button>
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div class="mobile-nav-drawer" id="mobileMenu" aria-hidden="true">
+      <div class="mobile-nav-header">
+        <div class="status-indicator-badge">
+          <span class="status-dot"></span>
+          <span class="status-text">JOURNEY IN PROGRESS</span>
+        </div>
+      </div>
+      <nav class="mobile-nav-links">
+        <a href="{{ url_for('home') }}" class="mobile-link {% if active_page == 'home' %}active{% endif %}">
+          <i class="fa-solid fa-house"></i> Home
+        </a>
+        <a href="{{ url_for('journey') }}" class="mobile-link {% if active_page == 'journey' %}active{% endif %}">
+          <i class="fa-solid fa-timeline"></i> The Journey
+        </a>
+        <a href="{{ url_for('achievements') }}" class="mobile-link {% if active_page == 'achievements' %}active{% endif %}">
+          <i class="fa-solid fa-trophy"></i> Achievements
+        </a>
+        <a href="{{ url_for('skills') }}" class="mobile-link {% if active_page == 'skills' %}active{% endif %}">
+          <i class="fa-solid fa-code"></i> Skills & Strengths
+        </a>
+        <a href="{{ url_for('projects') }}" class="mobile-link {% if active_page == 'projects' %}active{% endif %}">
+          <i class="fa-solid fa-layer-group"></i> Things I've Built
+        </a>
+        <a href="{{ url_for('progress') }}" class="mobile-link {% if active_page == 'progress' %}active{% endif %}">
+          <i class="fa-solid fa-chart-line"></i> Progress Analysis
+        </a>
+        <a href="{{ url_for('lessons') }}" class="mobile-link {% if active_page == 'lessons' %}active{% endif %}">
+          <i class="fa-solid fa-triangle-exclamation"></i> Lessons & Failures
+        </a>
+        <a href="{{ url_for('roadmap') }}" class="mobile-link {% if active_page == 'roadmap' %}active{% endif %}">
+          <i class="fa-solid fa-map-location-dot"></i> Interactive Roadmap
+        </a>
+      </nav>
+      <div class="mobile-nav-footer">
+        <span class="mono-tag">status: building</span>
+        <span class="mono-tag">version: {{ version }}</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content Area -->
+  <main id="mainContent" class="main-layout">
+    {% block content %}{% endblock %}
+  </main>
+
+  <!-- Universal Modal for Details (Milestone, Project, Skill) -->
+  <div id="detailModal" class="modal-backdrop" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="modal-card">
+      <div class="modal-header">
+        <div class="modal-badge-row" id="modalBadgeRow"></div>
+        <button class="modal-close-btn" id="modalCloseBtn" aria-label="Close dialog">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <div class="modal-body" id="modalBody">
+        <!-- Content dynamically injected by main.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Back to Top Button -->
+  <button id="backToTopBtn" class="back-to-top" aria-label="Back to top of page">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+
+  <!-- Developer Journal Footer -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-primary">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <span class="brand-bracket">{</span>
+            <span class="brand-text">My Coding Journey</span>
+            <span class="brand-bracket">}</span>
+          </div>
+          <p class="footer-tagline">A living chronicle of curiosities, mistakes, lessons, and milestones.</p>
+        </div>
+
+        <div class="footer-quick-links">
+          <h4 class="footer-col-title">Explorer</h4>
+          <ul>
+            <li><a href="{{ url_for('journey') }}">The Timeline</a></li>
+            <li><a href="{{ url_for('achievements') }}">Verified Achievements</a></li>
+            <li><a href="{{ url_for('skills') }}">Skills & Capabilities</a></li>
+            <li><a href="{{ url_for('projects') }}">Project Case Studies</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-quick-links">
+          <h4 class="footer-col-title">Reflections</h4>
+          <ul>
+            <li><a href="{{ url_for('progress') }}">Growth Analysis</a></li>
+            <li><a href="{{ url_for('lessons') }}">Failures & What I Learned</a></li>
+            <li><a href="{{ url_for('roadmap') }}">Interactive Roadmap</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-developer-meta">
+          <h4 class="footer-col-title">System Info</h4>
+          <div class="dev-meta-list">
+            <div class="dev-meta-row">
+              <span class="meta-label">status:</span>
+              <span class="meta-val meta-highlight">building</span>
+            </div>
+            <div class="dev-meta-row">
+              <span class="meta-label">version:</span>
+              <span class="meta-val">{{ version }}</span>
+            </div>
+            <div class="dev-meta-row">
+              <span class="meta-label">commit:</span>
+              <span class="meta-val">{{ commit_msg }}</span>
+            </div>
+            <div class="dev-meta-row">
+              <span class="meta-label">runtime:</span>
+              <span class="meta-val">Python / Flask / Vanilla JS</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-secondary">
+        <div class="footer-mantra">
+          <span class="console-prompt">&gt;</span>
+          <span class="console-code">console.log("Still learning, still curious...");</span>
+        </div>
+        <p class="footer-copy">Crafted with deliberate code. All sample journey records are fully editable in <code>data/*.json</code>.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Main JavaScript File -->
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+  {% block scripts %}{% endblock %}
+</body>
+</html>

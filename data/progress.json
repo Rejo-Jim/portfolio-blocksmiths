@@ -1,0 +1,148 @@
+{
+  "quick_stats": {
+    "projects_built": "24+",
+    "problems_solved": "350+",
+    "technologies": "14",
+    "major_milestones": "9",
+    "hours_logged": "1,400+",
+    "streak_days": "120"
+  },
+  "currently": {
+    "status_badge": "JOURNEY IN PROGRESS",
+    "status_headline": "Still learning. Still building. Still curious.",
+    "learning": [
+      "Distributed task queues & message brokers",
+      "Python async/await internals & asyncio event loop",
+      "Advanced database query optimization & B-tree indexing"
+    ],
+    "building": "AlgoVault v2 — Interactive algorithm visualizer with custom graph builder",
+    "improving": [
+      "Algorithmic intuition on hard dynamic programming & trees",
+      "UI/UX micro-interactions and accessibility engineering",
+      "Code modularity, clean architecture, and test coverage"
+    ],
+    "next_goal": "Contribute a major feature/bugfix to an open-source Python or Web tooling project with 1k+ stars"
+  },
+  "before_vs_now": [
+    {
+      "dimension": "Code Creation",
+      "before": "Copy-pasted tutorial code without understanding the underlying logic.",
+      "now": "Architects original applications from requirements and user stories independently."
+    },
+    {
+      "dimension": "Version Control",
+      "before": "Feared Git merge conflicts, saved folders as 'project_v2_final_final'.",
+      "now": "Fluid branching strategy, interactive rebases, atomic commits, and clean PR descriptions."
+    },
+    {
+      "dimension": "Problem Solving",
+      "before": "Relied on trial-and-error, got stuck for days on minor off-by-one errors.",
+      "now": "Deconstructs problems systematically, traces edge cases, and writes test invariants."
+    },
+    {
+      "dimension": "Debugging",
+      "before": "Put random print() statements everywhere and panicked on exceptions.",
+      "now": "Reads stack traces calmly, uses breakpoints, inspects network payloads, and checks source code."
+    },
+    {
+      "dimension": "Architecture",
+      "before": "Single giant 800-line script where everything was tangled together.",
+      "now": "Separation of concerns: clean routing, models, modular utilities, and well-defined contracts."
+    }
+  ],
+  "roadmap": [
+    {
+      "id": "r1",
+      "title": "Started Coding",
+      "status": "completed",
+      "year": "2024",
+      "detail": "First 'Hello World' in Python, variables, conditionals, loops"
+    },
+    {
+      "id": "r2",
+      "title": "First Project",
+      "status": "completed",
+      "year": "2024",
+      "detail": "CLI Expense Tracker & Data File persistence"
+    },
+    {
+      "id": "r3",
+      "title": "Web Foundations",
+      "status": "completed",
+      "year": "2024",
+      "detail": "Semantic HTML5, Responsive CSS Grid/Flexbox layouts"
+    },
+    {
+      "id": "r4",
+      "title": "JavaScript DOM & APIs",
+      "status": "completed",
+      "year": "2024",
+      "detail": "Vanilla JS, Event listeners, Fetch API, LocalStorage"
+    },
+    {
+      "id": "r5",
+      "title": "Competitive Programming",
+      "status": "completed",
+      "year": "2025",
+      "detail": "LeetCode & Codeforces, 350+ problems, Big-O complexity"
+    },
+    {
+      "id": "r6",
+      "title": "Backend Engineering (Flask)",
+      "status": "completed",
+      "year": "2025",
+      "detail": "REST APIs, SQLite relational schemas, Jinja templating"
+    },
+    {
+      "id": "r7",
+      "title": "First Hackathon Win",
+      "status": "completed",
+      "year": "2025",
+      "detail": "StudySync 48-hr sprint runner-up among 42 teams"
+    },
+    {
+      "id": "r8",
+      "title": "Advanced Architectures & Tooling",
+      "status": "current",
+      "year": "2026",
+      "detail": "YOU ARE HERE ● Shipped coding documentary, system design study"
+    },
+    {
+      "id": "r9",
+      "title": "Open Source Contributions",
+      "status": "future",
+      "year": "2026",
+      "detail": "Major open-source pull requests and community tooling"
+    },
+    {
+      "id": "r10",
+      "title": "Distributed Systems & Scalability",
+      "status": "future",
+      "year": "2026+",
+      "detail": "Microservices, WebSockets at scale, caching architectures"
+    }
+  ],
+  "charts": {
+    "projects_per_year": {
+      "labels": ["2024 Q1", "2024 Q2", "2024 Q3", "2024 Q4", "2025 Q1", "2025 Q2", "2025 Q3", "2025 Q4", "2026 Q1"],
+      "data": [1, 2, 3, 4, 3, 4, 3, 3, 2],
+      "cumulative": [1, 3, 6, 10, 13, 17, 20, 23, 25]
+    },
+    "problems_solved": {
+      "labels": ["May '24", "Jul '24", "Sep '24", "Nov '24", "Jan '25", "Mar '25", "May '25", "Jul '25", "Sep '25", "Nov '25", "Jan '26", "Mar '26"],
+      "data": [15, 35, 60, 95, 140, 190, 235, 270, 295, 320, 345, 365]
+    },
+    "technologies_by_category": {
+      "labels": ["Python Ecosystem", "Frontend & Web", "Backend & APIs", "Databases & Storage", "Tools & Version Control", "Algorithms & Theory"],
+      "data": [5, 4, 3, 2, 3, 4]
+    },
+    "achievements_timeline": {
+      "labels": ["2024 H1", "2024 H2", "2025 H1", "2025 H2", "2026 H1"],
+      "data": [1, 2, 3, 2, 1]
+    },
+    "activity_distribution": {
+      "labels": ["Building Projects", "Algorithms & Problem Solving", "Reading Source Code & Docs", "Refactoring & Debugging", "Writing & Architecture"],
+      "percentages": [40, 30, 12, 10, 8]
+    }
+  }
+}

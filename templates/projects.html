@@ -1,0 +1,105 @@
+{% extends 'base.html' %}
+
+{% block title %}Things I've Built — Case Studies & Stories{% endblock %}
+
+{% block content %}
+<div class="page-header-section">
+  <div class="container">
+    <div class="section-label-chip"><i class="fa-solid fa-layer-group"></i> PRODUCTION MILEAGE</div>
+    <h1 class="page-main-title">THINGS I'VE BUILT</h1>
+    <p class="page-subtitle">
+      Every project has a reason for existing. These aren't cloned tutorial templates — they are tools built to solve friction, test hypotheses, and learn deeply.
+    </p>
+
+    <!-- Technology Filter Pills -->
+    <div class="filter-pills-row" id="projectTechFilters">
+      <button class="filter-pill active" data-tech="all">ALL TECHNOLOGIES</button>
+      {% for tag in tags %}
+      <button class="filter-pill" data-tech="{{ tag }}">{{ tag }}</button>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+<section class="projects-catalog-section">
+  <div class="container">
+    <div class="projects-detailed-grid" id="projectsDetailedGrid">
+      {% for proj in projects %}
+      <article class="project-story-card glass-panel" data-tech-tags="{{ proj.tech_tags | join(',') }}" data-project-id="{{ proj.id }}">
+        
+        <!-- Card Header -->
+        <div class="project-card-banner">
+          <div class="banner-top-line">
+            <span class="banner-badge">{{ proj.badge }}</span>
+            <span class="banner-date"><i class="fa-regular fa-calendar"></i> {{ proj.date }}</span>
+          </div>
+          <h2 class="project-card-title">{{ proj.title }}</h2>
+          <p class="project-card-tagline">{{ proj.tagline }}</p>
+        </div>
+
+        <!-- Project Story Narrative Sections -->
+        <div class="project-narrative-sections">
+          <!-- Why & Problem -->
+          <div class="narrative-box">
+            <div class="narrative-label"><i class="fa-solid fa-circle-question"></i> WHY I BUILT IT & THE PROBLEM</div>
+            <p class="narrative-body">{{ proj.story.why }}</p>
+            <p class="narrative-sub"><strong>The core friction:</strong> {{ proj.story.problem }}</p>
+          </div>
+
+          <!-- How I Solved It -->
+          <div class="narrative-box solution-box">
+            <div class="narrative-label"><i class="fa-solid fa-code-branch"></i> HOW I SOLVED IT</div>
+            <p class="narrative-body">{{ proj.story.how_solved }}</p>
+          </div>
+
+          <!-- Key Challenges & What I Learned -->
+          <div class="challenges-learned-split">
+            <div class="mini-split-block">
+              <span class="split-head"><i class="fa-solid fa-triangle-exclamation"></i> TOUGHEST CHALLENGE</span>
+              <p>{{ proj.story.challenges }}</p>
+            </div>
+            <div class="mini-split-block">
+              <span class="split-head"><i class="fa-solid fa-graduation-cap"></i> WHAT I LEARNED</span>
+              <p>{{ proj.story.learned }}</p>
+            </div>
+          </div>
+
+          <!-- What I Would Improve Today -->
+          <div class="improvement-note">
+            <span class="improvement-label"><i class="fa-solid fa-wand-magic-sparkles"></i> WHAT I'D IMPROVE TODAY:</span>
+            <span>{{ proj.story.improvements }}</span>
+          </div>
+        </div>
+
+        <!-- Tech Chips & Actions -->
+        <div class="project-card-bottom">
+          <div class="project-chips-wrap">
+            {% for tech in proj.tech_tags %}
+            <span class="tech-chip-pill">{{ tech }}</span>
+            {% endfor %}
+          </div>
+
+          <div class="project-links-wrap">
+            <button class="btn btn-outline btn-sm open-project-modal-btn" data-project='{{ proj | tojson }}'>
+              <i class="fa-solid fa-maximize"></i> Full Story Modal
+            </button>
+            {% if proj.github_url %}
+            <a href="{{ proj.github_url }}" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm" title="Inspect Source Code">
+              <i class="fa-brands fa-github"></i> GitHub
+            </a>
+            {% endif %}
+          </div>
+        </div>
+
+      </article>
+      {% endfor %}
+    </div>
+
+    <!-- Empty State for filter -->
+    <div id="noProjectsFound" class="empty-filter-state" style="display: none;">
+      <i class="fa-regular fa-folder-open"></i>
+      <p>No projects match this technology filter.</p>
+    </div>
+  </div>
+</section>
+{% endblock %}

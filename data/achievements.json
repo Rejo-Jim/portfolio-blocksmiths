@@ -1,0 +1,98 @@
+[
+  {
+    "id": "ach-1",
+    "title": "HackCode Global Sprint — Runner Up",
+    "category": "hackathons",
+    "category_display": "Hackathons",
+    "date": "May 2025",
+    "icon": "trophy",
+    "description": "Awarded 2nd place among 42 international collegiate teams for developing StudySync, a collaborative real-time study sprint room with automated resource indexing.",
+    "evidence": "48-hour sprint, 3-person team, 1,800+ lines of Python/Flask and JavaScript written.",
+    "link": "https://github.com",
+    "badge": "2nd Place / 42 Teams"
+  },
+  {
+    "id": "ach-2",
+    "title": "350+ Algorithmic Challenges Solved",
+    "category": "coding_platforms",
+    "category_display": "Coding Platforms",
+    "date": "January 2026",
+    "icon": "code",
+    "description": "Consistent practice on LeetCode and Codeforces across data structures: binary trees, heaps, graph BFS/DFS, dynamic programming, and sliding windows.",
+    "evidence": "Top 20% ranking in weekly contests, 100+ medium problems, 25+ hard problems.",
+    "link": "https://leetcode.com",
+    "badge": "Top 20% Contest Rank"
+  },
+  {
+    "id": "ach-3",
+    "title": "University CodeJam 2025 Finalist",
+    "category": "competitions",
+    "category_display": "Competitions",
+    "date": "October 2025",
+    "icon": "award",
+    "description": "Qualified for the on-site finals of the Inter-University Competitive Programming Contest by solving 6 of 7 algorithmic challenges in under 3 hours.",
+    "evidence": "Placed 7th out of 140 participants. Solved all array, tree, and string manipulation rounds flawlessly.",
+    "link": "",
+    "badge": "Finalist Top 10"
+  },
+  {
+    "id": "ach-4",
+    "title": "Full-Stack Web Engineering Certification",
+    "category": "certifications",
+    "category_display": "Certifications",
+    "date": "July 2025",
+    "icon": "file-check",
+    "description": "Completed an intensive 16-week rigorous curriculum covering HTTP/HTTPS protocols, database normalization, asynchronous JavaScript, and REST architectural patterns.",
+    "evidence": "Graduated with 98% capstone score on a distributed API project with comprehensive test coverage.",
+    "link": "",
+    "badge": "High Honors"
+  },
+  {
+    "id": "ach-5",
+    "title": "Shipped 24 Independent Projects",
+    "category": "projects",
+    "category_display": "Projects",
+    "date": "February 2026",
+    "icon": "rocket",
+    "description": "Built and deployed 24 distinct utilities, tools, and applications spanning CLI engines, data analyzers, full-stack web platforms, and browser extensions.",
+    "evidence": "Over 25,000 lines of original code across Python, JavaScript, HTML, and CSS.",
+    "link": "https://github.com",
+    "badge": "24 Repositories Deployed"
+  },
+  {
+    "id": "ach-6",
+    "title": "120-Day Daily Coding Streak",
+    "category": "milestones",
+    "category_display": "Milestones",
+    "date": "December 2025",
+    "icon": "flame",
+    "description": "Pushed code or solved at least one algorithmic problem every single day without interruption for 4 consecutive months.",
+    "evidence": "Demonstrated discipline, deliberate practice, and persistent habit formation through busy exam periods.",
+    "link": "https://github.com",
+    "badge": "120 Days Continuous"
+  },
+  {
+    "id": "ach-7",
+    "title": "Open Source Bugfix in Flask Ecosystem",
+    "category": "other",
+    "category_display": "Other",
+    "date": "November 2025",
+    "icon": "git-pull-request",
+    "description": "Identified, reproduced, and patched an edge-case query parameter parsing issue in a popular community Flask documentation extension.",
+    "evidence": "Merged PR with passing CI unit tests and documentation revisions.",
+    "link": "https://github.com",
+    "badge": "Merged PR"
+  },
+  {
+    "id": "ach-8",
+    "title": "Algorithmic Complexity & Python Specialist",
+    "category": "certifications",
+    "category_display": "Certifications",
+    "date": "April 2025",
+    "icon": "check-circle",
+    "description": "Verified mastery of Python memory model, generators, decorators, time complexity analysis, and object-oriented architectural patterns.",
+    "evidence": "Scored in the 95th percentile in advanced Python engineering assessment.",
+    "link": "",
+    "badge": "Top 5% Assessment"
+  }
+]
